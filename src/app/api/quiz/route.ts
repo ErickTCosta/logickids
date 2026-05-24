@@ -257,6 +257,7 @@ async function getSessionQuestions(
         difficulty: q.difficulty,
         aiGenerated: false,
         timesUsed: 0,
+        createdAt: new Date(),
       }));
     console.log(`[QUIZ] ✅ Fallback adicionou ${fallback.length} questões`);
     questions = [...questions, ...fallback];
