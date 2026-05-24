@@ -66,3 +66,7 @@ logs
 # package-lock.json
 # yarn.lock
 # pnpm-lock.yaml
+
+# Upload script
+upload-github.bat
+TEST_GEMINI.sh
