@@ -1,4 +1,4 @@
-import jwt from 'jsonwebtoken'
+import jwt, { SignOptions, Secret } from 'jsonwebtoken'
 import { cookies } from 'next/headers'
 import { NextRequest } from 'next/server'
 import { JwtPayload } from '@/types'
@@ -6,9 +6,8 @@ import { JwtPayload } from '@/types'
 const SECRET = process.env.JWT_SECRET!
 
 export function signToken(payload: JwtPayload, expiresIn = '7d'): string {
-  return jwt.sign(payload, SECRET, { expiresIn })
+  return jwt.sign(payload as object, SECRET as Secret, { expiresIn } as SignOptions)
 }
-
 export function verifyToken(token: string): JwtPayload | null {
   try {
     return jwt.verify(token, SECRET) as JwtPayload
